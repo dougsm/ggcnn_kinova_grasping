@@ -8,7 +8,7 @@ The GG-CNN is a lightweight, fully-convolutional network which predicts the qual
 
 **Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach**
 
-*[Douglas Morrison](http://dougsm.com), [Jürgen Leitner](http://juxi.net), [Peter Corke](http://petercorke.com)*
+*[Douglas Morrison](http://dougsm.com), [Peter Corke](http://petercorke.com), [Jürgen Leitner](http://juxi.net)*
 
 Robotics: Science and Systems (RSS) 2018
 
@@ -19,11 +19,12 @@ If you use this work, please cite:
 ```text
 @article{morrison2018closing, 
 	title={Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach}, 
-	author={Morrison, Douglas and Leitner, Jürgen and Corke, Peter}, 
+	author={Morrison, Douglas and Corke, Peter and Leitner, Jürgen}, 
 	booktitle={Robotics: Science and Systems (RSS)}, 
 	year={2018} 
 }
 ```
+
 
 ## Installation
 
