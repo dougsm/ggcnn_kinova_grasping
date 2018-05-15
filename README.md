@@ -1,4 +1,4 @@
-# Generative Grasping CNN (GG-CNN)
+# Generative Grasping CNN (GG-CNN) Grasping with Kinova Mico
 
 This repository contains a ROS package for running the GG-CNN grasping pipeline on a Kinova Mico arm.  For the GG-CNN implementation and training, please see [https://github.com/dougsm/ggcnn](https://github.com/dougsm/ggcnn).
 
