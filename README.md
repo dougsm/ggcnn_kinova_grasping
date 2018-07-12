@@ -51,4 +51,4 @@ Once the ROS package is compiled and sourced:
 
 **Contact**
 
-Any questions or comments contact [Doug Morrison](mailto:douglas.morrison@hdr.qut.edu.au).
+Any questions or comments contact [Doug Morrison](mailto:doug.morrison@roboticvision.org).
