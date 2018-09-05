@@ -118,7 +118,6 @@ def depth_callback(depth_message):
 
         points_out = pred_out[0].squeeze()
         points_out[depth_nan] = 0
-        points_out = points_out ** 2
 
     with TimeIt('Trig'):
         # Calculate the angle map.
