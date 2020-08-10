@@ -1,13 +1,33 @@
-# Helper Functions for Robot Movement
-# Stolen from the ACRV 2017 Amazon Robotics Challenge
 import rospy
 import geometry_msgs.msg as gmsg
 import tf2_ros
 import tf2_geometry_msgs
 
-# Create buffer and listener
-tfBuffer = tf2_ros.Buffer()
-listener = tf2_ros.TransformListener(tfBuffer)
+# Lazy create on use (convert_pose) to avoid errors.
+tfBuffer = None
+listener = None
+
+
+def _init_tf():
+    # Create buffer and listener
+    # Something has changed in tf that means this must happen after init_node
+    global tfBuffer, listener
+    tfBuffer = tf2_ros.Buffer()
+    listener = tf2_ros.TransformListener(tfBuffer)
+
+
+def quaternion_to_list(quaternion):
+    return [quaternion.x, quaternion.y, quaternion.z, quaternion.w]
+
+
+def list_to_quaternion(l):
+    q = gmsg.Quaternion()
+    q.x = l[0]
+    q.y = l[1]
+    q.z = l[2]
+    q.w = l[3]
+    return q
+
 
 def convert_pose(pose, from_frame, to_frame):
     """
@@ -18,8 +38,8 @@ def convert_pose(pose, from_frame, to_frame):
     """
     global tfBuffer, listener
 
-    # Create Listener objet to recieve and buffer transformations
-    trans = None
+    if tfBuffer is None or listener is None:
+        _init_tf()
 
     try:
         trans = tfBuffer.lookup_transform(to_frame, from_frame, rospy.Time(0), rospy.Duration(1.0))
@@ -101,7 +121,6 @@ def publish_pose_as_transform(pose, reference_frame, name, seconds=1):
     """
 
     # Create a broadcast node and a stamped transform to broadcast
-    br = tf2_ros.TransformBroadcaster()
     t = gmsg.TransformStamped()
 
     # Prepare broadcast message
